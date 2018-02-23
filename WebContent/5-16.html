@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+
+	
+	function pythagoras(width, height){
+		
+		function square(x) {return x*x;}
+		
+		return Math.sqrt(square(width)+square(height));
+	}	//외부에 이름 같은 함수가 있어도 내부 함수가 우선으로 사용됨 (square)
+	
+	alert(pythagoras(3,4));
+	
+	function square(width, height, hypotenuse){
+		if(width*width + height*height == hypotenuse*hypotenuse){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	</script>
+</body>
+</html>

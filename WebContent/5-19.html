@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+
+	function callFunctionTenTimes(otherFunction){ 
+		for(var i = 0; i <3 ; i++){
+			otherFunction();    //매개변수로 들어온 함수를 실행
+		}
+	}
+	
+	callFunctionTenTimes(function(){
+		alert('Hello World..!');
+	})
+	
+	//매개변수에 함수를 넣을 수 있다
+	
+
+</script>
+</body>
+</html>

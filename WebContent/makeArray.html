@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+function jhArray(){
+	if(arguments.length==0){
+		return Array();
+		
+	}
+	
+	else if(arguments.length==1){
+		return Array(arguments[0]);
+		
+	}else{
+		var array=Array(arguments.length);
+		for(var i=0; i<arguments.length ; i++){
+			
+			array[i] = arguments[i]; 
+			}
+		return array; }
+	
+}
+alert(jhArray());
+alert(jhArray(10));
+alert(jhArray(1,2,3,4,5,6,7,8,9));
+</script>
+</body>
+</html>
