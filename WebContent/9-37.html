@@ -1,66 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- º¸Á¶ ÇÔ¼ö -->
+<!-- ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ -->
 <script>
-        // ·£´ıÇÑ Á¤¼ö¸¦ »ı¼ºÇÕ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         function nextRandomInteger(limit) {
             return Math.round(Math.random() * limit);
         }
-        // ·£´ıÇÑ ¾ËÆÄºªÀ» ¸®ÅÏÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ï¿½Ô´Ï´ï¿½.
         var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         function randomAlphabet() {
             return alphabet.charAt(nextRandomInteger(25));
         }
-        // ¾çÀ½À¸·Î ·£´ıÇÑ ¼Óµµ¸¦ »ı¼ºÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ï¿½Ô´Ï´ï¿½.
         function randomSpeed(maxSpeed) {
             return Math.random() * maxSpeed 
             - Math.random() * maxSpeed;
         }
     </script>
-<!-- »ı¼ºÀÚ ÇÔ¼ö -->
+<!-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ -->
 <script>
-        // MovingTextÀÇ »ı¼ºÀÚ ÇÔ¼ö
+        // MovingTextï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
         var canvasWidth = 700;
         var canvasHeight = 500;
         function MovingText() {
-            // À§Ä¡¿Í ¼Óµµ ¼Ó¼º
+            // ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Óµï¿½ ï¿½Ó¼ï¿½
             this.x = nextRandomInteger(canvasWidth);
             this.y = nextRandomInteger(canvasHeight);
             this.vX = randomSpeed(10);
             this.vY = randomSpeed(10);
-            // ¹®¼­ °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù.
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
             this.body = document.createElement('h1');
             this.body.innerHTML = randomAlphabet();
             this.body.style.position = 'absolute';
-            // ¹®¼­ °´Ã¼¸¦ document.body¿¡ Ãß°¡ÇÕ´Ï´Ù.
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ document.bodyï¿½ï¿½ ï¿½ß°ï¿½ï¿½Õ´Ï´ï¿½.
             document.body.appendChild(this.body);
+            
+            
+            this.body.onmouseover=function(){
+            	document.body.removeChild(this);
+            }
+            ///ë§ˆìš°ìŠ¤ì˜¤ë²„ì‹œ ì‚¬ë¼ì§
         }
 
-        MovingText.prototype.move = function () {
-            // ¹üÀ§ °Ë»ç
+         MovingText.prototype.move = function () {
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
             if (this.x < 0 || this.x > canvasWidth) { this.vX *= -1; }
             if (this.y < 0 || this.y > canvasHeight) { this.vY *= -1; }
-            // ÀÌµ¿
+            // ï¿½Ìµï¿½
             this.x += this.vX;
             this.y += this.vY;
-            // È­¸é¿¡ ÀÌµ¿ Ç¥½Ã
+            // È­ï¿½é¿¡ ï¿½Ìµï¿½ Ç¥ï¿½ï¿½
             this.body.style.left = this.x + 'px';
             this.body.style.top = this.y + 'px';
-        };
+        }; 
     </script>
 <!-- window.onload -->
 <script>
         window.onload = function () {
-            // º¯¼ö¸¦ ¼±¾ğÇÕ´Ï´Ù.
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
             var movingTexts = [];
 
-            // ¹è¿­¿¡ MovingText °´Ã¼ 100°³¸¦ »ı¼ºÇÕ´Ï´Ù.
+            // ï¿½è¿­ï¿½ï¿½ MovingText ï¿½ï¿½Ã¼ 100ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
             for (var i = 0; i < 100; i++) {
                 movingTexts.push(new MovingText());
             }
 
-            // ¿òÁ÷ÀÔ´Ï´Ù.
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
             setInterval(function () {
                 for (var i in movingTexts) {
                 	movingTexts[i].move();
@@ -69,15 +75,15 @@
             }, 1000 / 60);
             
             
-            var elements=document.getElementsByTagName('h1');
+           /*  var elements=document.getElementsByTagName('h1');
             for(i in elements){
-            	elements[i].onmouseover=disapear(i);
+            	elements[i].onmouseover=disappear(i);
             }
             
-            function disapear(i){
+            function disappear(i){
             	return function(){
 					elements[i].style.display='none'; 
-            	}
+            	} */
             }
             
             
@@ -85,7 +91,7 @@
             
            
             
-        };
+       
     </script>
 </head>
 <body>
